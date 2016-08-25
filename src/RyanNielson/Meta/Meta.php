@@ -136,6 +136,10 @@ class Meta {
     {
         if(substr($name, 0, 3) == 'og:' || substr($name, 0, 3) == 'fb:')
             return "<meta property=\"$name\" content=\"$content\"/>";
+        else if(substr($name, 0, 4) == 'rel:'){
+            $name=ltrim($name,"rel:");
+            return "<link rel=\"$name\" href=\"$content\"/>";
+        }
         else
             return "<meta name=\"$name\" content=\"$content\"/>";
     }
