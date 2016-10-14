@@ -8,9 +8,9 @@ This package will work in any PHP application, and Facades and Service Providers
 
 #### General
 
-Run the following Composer command in your terminal, or simply add `'ryannielson/meta': '1.1.*'` to your composer.json file:
+Run the following Composer command in your terminal, or simply add `'Quintype/meta': '1.1.*'` to your composer.json file:
 
-    composer require ryannielson/meta:'1.1.*'
+    composer require Quintype/meta:'1.1.*'
 
 Then update Composer from the terminal:
 
@@ -22,11 +22,11 @@ This package also includes Laravel facades and service providers to make integra
 
 Once complete, you now have to add the the service provider to the providers array in `app/config/app.php`: 
 
-    'RyanNielson\Meta\MetaServiceProvider'
+    'Quintype\Meta\MetaServiceProvider'
     
 Finally, add the following entry entry to the aliases array in `app/config/app.php`:
 
-    'Meta' => 'RyanNielson\Meta\Facades\Meta'
+    'Meta' => 'Quintype\Meta\Facades\Meta'
 
 
 That's it!
@@ -38,7 +38,7 @@ That's it!
 
 To set meta tag values, you will use the `set(array())` method on the Meta instance. Just pass this Meta object around to persist the set values. 
 
-    $meta = new \RyanNielson\Meta\Meta;
+    $meta = new \Quintype\Meta\Meta;
 
     // Example #1 - Basic setting of values
     $meta->set(array('title' => 'Page Title', 'description' => 'Page Description', 'keywords' => array('great', 'site')));

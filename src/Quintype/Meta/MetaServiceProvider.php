@@ -1,4 +1,4 @@
-<?php namespace RyanNielson\Meta;
+<?php namespace Quintype\Meta;
 
 use Illuminate\Support\ServiceProvider;
 

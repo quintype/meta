@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-0": {
-            "RyanNielson\\Meta\\": "src/"
+            "Quintype\\Meta\\": "src/"
         }
     },
     "minimum-stability": "stable"

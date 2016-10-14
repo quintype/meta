@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\RyanNielson\Meta;
+namespace spec\Quintype\Meta;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -9,7 +9,7 @@ class MetaSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('RyanNielson\Meta\Meta');
+        $this->shouldHaveType('Quintype\Meta\Meta');
     }
 
     function it_sets_attributes_correctly()

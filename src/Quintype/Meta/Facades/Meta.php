@@ -1,4 +1,4 @@
-<?php namespace RyanNielson\Meta\Facades;
+<?php namespace Quintype\Meta\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
