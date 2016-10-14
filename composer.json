@@ -1,14 +1,18 @@
 {
-    "name": "ryannielson/meta",
+    "name": "quintype/meta",
     "description": "A package that makes it easy to add meta tags to your views. Includes easy Laravel integration.",
     "keywords": ["meta", "view", "laravel"],
-    "homepage": "https://github.com/RyanNielson/meta",
+    "homepage": "https://github.com/quintype/meta",
     "license": "MIT",
     "authors": [
         {
             "name": "Ryan Nielson",
             "email": "ryan.nielson@gmail.com",
             "homepage": "http://nielson.io"
+        },
+        {
+            "name": "Anagh Padmanabhan",
+            "email": "anagh.parambath@gmail.com"
         }
     ],
     "require": {
