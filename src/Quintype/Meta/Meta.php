@@ -134,8 +134,12 @@ class Meta {
      */
     private function metaTag($name, $content)
     {
-        if(substr($name, 0, 3) == 'og:' || substr($name, 0, 3) == 'fb:')
-            return "<meta property=\"$name\" content=\"$content\"/>";
+        if(substr($name, 0, 3) == 'og:' || substr($name, 0, 3) == 'fb:') {
+          if(substr($name, 0, 8) == 'og:image') {
+            return "<meta property=\"$name\" itemprop=\"image\" content=\"$content\"/>";
+          }
+          return "<meta property=\"$name\" content=\"$content\"/>";
+        }
         else if(substr($name, 0, 4) == 'rel:'){
             $name=ltrim($name,"rel:");
             return "<link rel=\"$name\" href=\"$content\"/>";
