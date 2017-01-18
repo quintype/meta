@@ -134,14 +134,35 @@ class Meta {
      */
     private function metaTag($name, $content)
     {
+        $name.":".$content."</br>";
         if(substr($name, 0, 3) == 'og:' || substr($name, 0, 3) == 'fb:') {
           if(substr($name, 0, 8) == 'og:image') {
             return "<meta property=\"$name\" itemprop=\"image\" content=\"$content\"/>";
           }
+          if(substr($name, 0, 6) == 'og:url') {
+            $url = 'url';
+            return "<meta itemprop=\"$url\" property=\"$name\" content=\"$content\"/>";
+          }
           return "<meta property=\"$name\" content=\"$content\"/>";
         }
-        else if(substr($name, 0, 4) == 'rel:'){
+        else if(substr($name, 0, 11) == 'description') {
+          $description = 'description';
+          return "<meta itemprop=\"$description\" name=\"$name\" content=\"$content\"/>";
+        }
+        else if(substr($name, 0, 7) == 'section') {
+          $articleSection = 'articleSection';
+          return "<meta itemprop=\"$articleSection\" name=\"$name\" content=\"$content\"/>";
+        }
+        else if(substr($name, 0, 9) == 'image_src') {
+          $thumbnailUrl = 'thumbnailUrl';
+          return "<meta itemprop=\"$thumbnailUrl\" name=\"$name\" content=\"$content\"/>";
+        }
+        else if(substr($name, 0, 4) == 'rel:') {
             $name=ltrim($name,"rel:");
+            if($name == 'canonical'){
+              $mainEntityOfPage = 'mainEntityOfPage';
+              return "<link itemprop=\"$mainEntityOfPage\" rel=\"$name\" href=\"$content\"/>";
+            }
             return "<link rel=\"$name\" href=\"$content\"/>";
         }
         else
