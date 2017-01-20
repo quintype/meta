@@ -138,10 +138,25 @@ class Meta {
           if(substr($name, 0, 8) == 'og:image') {
             return "<meta property=\"$name\" itemprop=\"image\" content=\"$content\"/>";
           }
+          if(substr($name, 0, 6) == 'og:url') {
+            return "<meta itemprop=\"url\" property=\"$name\" content=\"$content\"/>";
+          }
           return "<meta property=\"$name\" content=\"$content\"/>";
         }
-        else if(substr($name, 0, 4) == 'rel:'){
+        else if(substr($name, 0, 11) == 'description') {
+          return "<meta itemprop=\"description\" name=\"$name\" content=\"$content\"/>";
+        }
+        else if(substr($name, 0, 7) == 'section') {
+          return "<meta itemprop=\"articleSection\" name=\"$name\" content=\"$content\"/>";
+        }
+        else if(substr($name, 0, 9) == 'image_src') {
+          return "<meta itemprop=\"thumbnailUrl\" name=\"$name\" content=\"$content\"/>";
+        }
+        else if(substr($name, 0, 4) == 'rel:') {
             $name=ltrim($name,"rel:");
+            if($name == 'canonical') {
+              return "<link itemprop=\"mainEntityOfPage\" rel=\"$name\" href=\"$content\"/>";
+            }
             return "<link rel=\"$name\" href=\"$content\"/>";
         }
         else
