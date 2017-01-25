@@ -136,7 +136,7 @@ class Meta {
     {
         if(substr($name, 0, 3) == 'og:' || substr($name, 0, 3) == 'fb:') {
           if(substr($name, 0, 8) == 'og:image') {
-            return "<meta property=\"$name\" itemprop=\"image\" content=\"$content\"/>";
+            return "<meta property=\"$name\" content=\"$content\"/>";
           }
           if(substr($name, 0, 6) == 'og:url') {
             return "<meta itemprop=\"url\" property=\"$name\" content=\"$content\"/>";
