@@ -153,14 +153,11 @@ class Meta {
           return "<meta itemprop=\"thumbnailUrl\" name=\"$name\" content=\"$content\"/>";
         }
         else if(substr($name, 0, 4) == 'rel:') {
-            $name=ltrim($name,"rel:");
-            if($name == 'canonical') {
-              return "<link itemprop=\"mainEntityOfPage\" rel=\"$name\" href=\"$content\"/>";
-            }
-            return "<link rel=\"$name\" href=\"$content\"/>";
+          $name=ltrim($name,"rel:");
+          return "<link rel=\"$name\" href=\"$content\"/>";
         }
         else
-            return "<meta name=\"$name\" content=\"$content\"/>";
+          return "<meta name=\"$name\" content=\"$content\"/>";
     }
 
     /**
