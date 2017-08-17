@@ -15,6 +15,11 @@ class Meta {
      */
     public function set($attributes = array())
     {
+        //Remove any empty elements before generating meta tag
+        $attributes = array_filter($attributes, function ($content) {
+            return !empty($content);
+        });
+
         $this->attributes = array_replace_recursive($this->attributes, $attributes);
 
         return $this->attributes;
