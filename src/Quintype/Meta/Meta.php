@@ -11,14 +11,15 @@ class Meta {
     /**
      * Sets the meta attributes.
      * @param array $attributes
+     * @param array $exclude
      * @return array
      */
-    public function set($attributes = array())
+    public function set($attributes = array(), $exclude = [])
     {
-        //Remove any empty elements before generating meta tag
-        $attributes = array_filter($attributes, function ($content) {
-            return !empty($content);
-        });
+        //Remove any empty elements and keys specified in the $exclude array before generating meta tag
+        $attributes = array_filter($attributes, function ($value, $key) use ($exclude) {
+            return !empty($value) && !in_array($key, $exclude);
+        }, ARRAY_FILTER_USE_BOTH);
 
         $this->attributes = array_replace_recursive($this->attributes, $attributes);
 
