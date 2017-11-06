@@ -140,6 +140,8 @@ class Meta {
      */
     private function metaTag($name, $content)
     {
+        $name = htmlspecialchars($name);
+        $content = htmlspecialchars($content);
         if(substr($name, 0, 3) == 'og:' || substr($name, 0, 3) == 'fb:') {
           if(substr($name, 0, 8) == 'og:image') {
             return "<meta property=\"$name\" content=\"$content\"/>";
@@ -174,6 +176,7 @@ class Meta {
      */
     private function titleTag($content)
     {
+        $content = htmlspecialchars($content);
         return "<title>$content</title>";
     }
 
