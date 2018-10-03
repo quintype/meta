@@ -143,6 +143,9 @@ class Meta {
         $name = htmlspecialchars($name);
         $content = htmlspecialchars($content);
         if(substr($name, 0, 3) == 'og:' || substr($name, 0, 3) == 'fb:') {
+          if($name == 'og:image') {
+            return "<meta property=\"$name\" content=\"$content&auto=format%2Ccompress\"/>";
+          }
           if(substr($name, 0, 8) == 'og:image') {
             return "<meta property=\"$name\" content=\"$content\"/>";
           }
